@@ -52,10 +52,16 @@ export const Card = ({ item, favorite, handleFavorite }) => {
         </span>
       </Header>
 
-      <SemiTransparent>
-        {address.split(', ').slice(1).join(' | ')} | {rentalCompany} | {type} |{' '}
-        {functionalities[0]}
-      </SemiTransparent>
+      <div style={{ marginBottom: '28px' }}>
+        {[
+          ...address.split(', ').slice(1),
+          rentalCompany,
+          type,
+          functionalities[0],
+        ].map(i => (
+          <SemiTransparent key={i}>{i}</SemiTransparent>
+        ))}
+      </div>
 
       <Button
         type={'button'}
