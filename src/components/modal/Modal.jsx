@@ -28,41 +28,72 @@ export const Modal = ({ onClose, item }) => {
     return () => window.removeEventListener('keydown', keyDown);
   }, [onClose]);
 
+  const {
+    img,
+    photoLink,
+    make,
+    model,
+    year,
+    fuelConsumption,
+    address,
+    rentalCompany,
+    type,
+    id,
+    functionalities,
+    engineSize,
+    description,
+    accessories,
+    rentalConditions,
+    mileage,
+    rentalPrice,
+  } = item;
+
   return createPortal(
     <Overlay onClick={onClose}>
       <Container className="card">
         <CloseIcon alt="X" src={X} onClick={onClose} />
 
-        <Image src={item.img || item.photoLink} />
+        <Image src={img || photoLink} />
 
         <Header>
-          {item.make}
-          <span style={{ color: '#3470FF' }}> {item.model}, </span>
-          {item.year}
+          {make}
+          <span style={{ color: '#3470FF' }}> {model}, </span>
+          {year}
         </Header>
 
-        <SemiTransparent>
-          {item.address.split(', ').slice(1).join(' | ')} | id: {item.id} |
-          Year: {item.year} | Type: {item.type}
-        </SemiTransparent>
+        <div>
+          {[
+            ...address.split(', ').slice(1),
+            rentalCompany,
+            `ID: ${id}`,
+            `Year: ${year}`,
+            `Type: ${type}`,
+          ].map(i => (
+            <SemiTransparent key={i}>{i}</SemiTransparent>
+          ))}
+        </div>
 
-        <SemiTransparent>
-          Fuel Consumption: {item.fuelConsumption} | Engine Size:{' '}
-          {item.engineSize}
-        </SemiTransparent>
+        <div>
+          {[
+            `Fuel Consumption: ${fuelConsumption}`,
+            `Engine Size: ${engineSize}`,
+          ].map(i => (
+            <SemiTransparent key={i}>{i}</SemiTransparent>
+          ))}
+        </div>
 
-        <Text>{item.description}</Text>
+        <Text>{description}</Text>
 
         <SemiHeader>Accessories and functionalities:</SemiHeader>
 
-        <SemiTransparent>{item.accessories.join(' | ')}</SemiTransparent>
-
-        <SemiTransparent>{item.functionalities.join(' | ')}</SemiTransparent>
+        {[...accessories, ...functionalities].map(i => (
+          <SemiTransparent key={i}>{i}</SemiTransparent>
+        ))}
 
         <SemiHeader>Rental Conditions: </SemiHeader>
 
         <div style={{ marginBottom: '24px' }}>
-          {item.rentalConditions.split('\n').map(cond =>
+          {rentalConditions.split('\n').map(cond =>
             !cond.includes(':') ? (
               <TextBG key={cond}>{cond}</TextBG>
             ) : (
@@ -75,12 +106,12 @@ export const Modal = ({ onClose, item }) => {
           <TextBG>
             Mileage :{' '}
             <SpanBG>
-              {item.mileage.toString().split('').toSpliced(-3, 0, ',').join('')}
+              {mileage.toString().split('').toSpliced(-3, 0, ',').join('')}
             </SpanBG>
           </TextBG>
 
           <TextBG>
-            Price : <SpanBG>{item.rentalPrice.slice(1)}$</SpanBG>
+            Price : <SpanBG>{rentalPrice.slice(1)}$</SpanBG>
           </TextBG>
         </div>
 

@@ -49,16 +49,23 @@ export const Header = styled.p`
   line-height: 1.33;
   letter-spacing: 0em;
   text-align: left;
+  margin-bottom: 4px;
   margin-top: 12px;
 `;
 
-export const SemiTransparent = styled.p`
+export const SemiTransparent = styled.span`
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: 0em;
   text-align: left;
   color: var(--semi-transparent);
   margin-top: 4px;
+
+  :not(:last-of-type):after {
+    content: '';
+    border-right: 1px solid;
+    margin: 0 5px;
+  }
 `;
 
 export const Text = styled.p`
@@ -75,6 +82,7 @@ export const SemiHeader = styled.p`
   line-height: 1.43;
   letter-spacing: 0em;
   text-align: left;
+  margin-bottom: 4px;
   margin-top: 24px;
 `;
 
