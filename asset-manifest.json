@@ -1,13 +1,22 @@
 {
   "files": {
-    "main.css": "/project-cars/static/css/main.b5320759.css",
-    "main.js": "/project-cars/static/js/main.0f1d571b.js",
+    "main.css": "/project-cars/static/css/main.9e41fef4.css",
+    "main.js": "/project-cars/static/js/main.affb564c.js",
+    "static/js/149.04b9da92.chunk.js": "/project-cars/static/js/149.04b9da92.chunk.js",
+    "static/js/112.bd776351.chunk.js": "/project-cars/static/js/112.bd776351.chunk.js",
+    "static/media/HomeCars.png": "/project-cars/static/media/HomeCars.be5d3f365af58389b348.png",
     "index.html": "/project-cars/index.html",
-    "main.b5320759.css.map": "/project-cars/static/css/main.b5320759.css.map",
-    "main.0f1d571b.js.map": "/project-cars/static/js/main.0f1d571b.js.map"
+    "static/media/heart.svg": "/project-cars/static/media/heart.282d936f414f4c6884ab9306a91dad67.svg",
+    "static/media/active.svg": "/project-cars/static/media/active.97847e9195943f61800c97807e735d4f.svg",
+    "static/media/x.svg": "/project-cars/static/media/x.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
+    "static/media/arrow.svg": "/project-cars/static/media/arrow.b752a2d4062e758145cdc132dcef5bfd.svg",
+    "main.9e41fef4.css.map": "/project-cars/static/css/main.9e41fef4.css.map",
+    "main.affb564c.js.map": "/project-cars/static/js/main.affb564c.js.map",
+    "149.04b9da92.chunk.js.map": "/project-cars/static/js/149.04b9da92.chunk.js.map",
+    "112.bd776351.chunk.js.map": "/project-cars/static/js/112.bd776351.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5320759.css",
-    "static/js/main.0f1d571b.js"
+    "static/css/main.9e41fef4.css",
+    "static/js/main.affb564c.js"
   ]
 }
