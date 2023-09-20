@@ -1,6 +1,15 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
 import { useGetCarsQuery } from 'redux/carsApi';
 import { Button } from '../button/Button';
+import Arrow from '../../images/icons/arrow.svg';
+
+import {
+  favoriteCars,
+  makesList,
+  priceRange10,
+} from 'components/filter/Filter';
 
 import {
   Container,
@@ -11,21 +20,25 @@ import {
   CustomLabel,
   SelectImg,
 } from './ChooseForm.styled';
-import Arrow from '../../images/icons/arrow.svg';
 
 export const ChooseForm = ({ setFilter }) => {
+  const favorite = useSelector(state => state.favorite.favorite);
   const { data } = useGetCarsQuery();
+  const { pathname } = useLocation();
   const [model, setModel] = useState('');
   const [price, setPrice] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
 
-  const makes = [...new Set(data?.map(item => item.make))].sort();
-  const priceRange = [
-    ...new Set(
-      data?.map(item => +item.rentalPrice.slice(1)).sort((a, b) => a - b)
-    ),
-  ];
+  const makes = makesList(
+    pathname.includes('catalog') ? data : favoriteCars(data, favorite)
+  );
+
+  const priceRange = !data
+    ? []
+    : priceRange10(
+        pathname.includes('catalog') ? data : favoriteCars(data, favorite)
+      );
 
   const handleSubmit = e => {
     e.preventDefault();
